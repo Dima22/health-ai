@@ -73,10 +73,10 @@ npm run dev:server
 npm run dev:client
 ```
 
-Backend доступен по адресу:
-`http://localhost:3000`
-Frontend доступен по адресу:
-`http://localhost:5173`
+Backend доступен по адресу:  
+`http://localhost:3000`  
+Frontend доступен по адресу:  
+`http://localhost:5173`  
 Фактический адрес смотрите в выводе терминала: порт может отличаться.
 
 Для остановки каждого процесса нажмите `Ctrl+C` в его терминале.
