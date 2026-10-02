@@ -1,98 +1,114 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# health-ai
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Учебное веб-приложение для работы с научными публикациями о здоровье. Планируемые возможности: каталог публикаций, личные подборки, импорт данных из PubMed и AI-резюме с указанием исходной публикации.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Основной фокус проекта — backend на TypeScript и NestJS: проектирование REST API, работа с данными, фоновая обработка и тестирование. React-клиент служит интерфейсом для демонстрации пользовательских сценариев.
 
-## Description
+## Статус
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Проект находится на этапе настройки окружения.
 
-## Project setup
+- Созданы NestJS backend и React + Vite frontend.
+- Клиент и сервер размещены в одном репозитории и объединены через npm workspaces.
+- Настроены команды запуска из корня проекта.
+- Проверен локальный запуск обеих частей.
 
-```bash
-$ npm install
-```
+Пользовательские функции, интеграции и production-деплой пока не реализованы. Клиент и сервер запускаются отдельно; взаимодействие через API будет добавлено при реализации первого сценария.
 
-## Compile and run the project
+## Текущий стек
 
-```bash
-# development
-$ npm run start
+| Область | Технологии |
+| --- | --- |
+| Язык | TypeScript |
+| Backend | Node.js, NestJS, Express-адаптер |
+| Frontend | React, Vite, CSS |
+| Управление зависимостями | npm workspaces |
+| Проверка кода | ESLint |
+| Контроль версий | Git |
 
-# watch mode
-$ npm run start:dev
+## Структура репозитория
 
-# production mode
-$ npm run start:prod
-```
+| Путь | Назначение |
+| --- | --- |
+| `client/` | React-приложение и конфигурация Vite |
+| `server/` | NestJS-приложение и серверные тесты |
+| `package.json` | Настройки workspaces и общие команды |
+| `package-lock.json` | Общий lock-файл зависимостей |
+| `.gitignore` | Исключения для зависимостей, сборок и локальных файлов |
 
-## Run tests
+У клиента и сервера собственные `package.json`. Установка зависимостей выполняется из корня репозитория. npm может размещать зависимости как в корневой, так и во вложенных папках `node_modules`.
 
-```bash
-# unit tests
-$ npm run test
+## Локальный запуск
 
-# e2e tests
-$ npm run test:e2e
+### Требования
 
-# test coverage
-$ npm run test:cov
-```
+- Node.js LTS, совместимый с версиями NestJS и Vite в проекте.
+- npm с поддержкой workspaces.
+- Git.
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Проверить установленные версии:
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+node --version
+npm --version
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+После клонирования репозитория перейдите в папку `health-ai`. Все команды ниже выполняются из корня проекта.
 
-## Resources
+Установите зависимости по общему lock-файлу:
 
-Check out a few resources that may come in handy when working with NestJS:
+```bash
+npm ci
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Запустите backend в первом терминале:
 
-## Support
+```bash
+npm run dev:server
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Запустите frontend во втором терминале:
 
-## Stay in touch
+```bash
+npm run dev:client
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Backend доступен по адресу:
+`http://localhost:3000`
+Frontend доступен по адресу:
+`http://localhost:5173`
+Фактический адрес смотрите в выводе терминала: порт может отличаться.
 
-## License
+Для остановки каждого процесса нажмите `Ctrl+C` в его терминале.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Команды
+
+| Команда из корня | Назначение |
+| --- | --- |
+| `npm run dev:server` | Запуск backend с пересборкой при изменениях |
+| `npm run start:server` | Сборка и запуск backend без наблюдения за файлами |
+| `npm run build:server` | Сборка backend в `server/dist/` |
+| `npm run start:prod:server` | Запуск заранее собранного backend |
+| `npm run test:server` | Запуск серверных unit-тестов |
+| `npm run dev:client` | Запуск сервера разработки Vite |
+| `npm run build:client` | Подготовка frontend-сборки в `client/dist/` |
+| `npm run preview:client` | Локальный просмотр готовой frontend-сборки |
+
+Перед `start:prod:server` выполните `build:server`. Перед `preview:client` выполните `build:client`.
+
+`preview:client` предназначен для локальной проверки. Для размещения frontend на VPS планируется раздавать собранные файлы через Nginx. Скрипт `start:prod:server` сам по себе не задаёт `NODE_ENV=production`; окружение будет настроено при деплое.
+
+## План развития
+
+1. Каталог публикаций: список, карточка, поиск и пагинация.
+2. PostgreSQL и Prisma: схема данных, миграции и хранение публикаций.
+3. Авторизация и личные подборки с проверкой прав владельца.
+4. Импорт метаданных и abstracts из PubMed.
+5. Фоновая обработка через Kafka и отдельный worker.
+6. AI-резюме через Claude API, проверка результата с Zod и оценка качества на наборе примеров.
+7. Обоснованный сценарий кэширования через Redis.
+8. Документация OpenAPI, интеграционные и HTTP-тесты, нагрузочные проверки.
+9. Логи, метрики и трассировка.
+10. Docker Compose, GitHub Actions и демонстрационный деплой на VPS.
+
+Список описывает план, а не уже доступные возможности. README будет обновляться по мере реализации.
